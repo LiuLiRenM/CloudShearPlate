@@ -1,6 +1,7 @@
 package com.liuliren.cloudshearplate;
 
-import org.springframework.boot.SpringApplication;
+import com.liuliren.cloudshearplate.common.constant.CommonConstant;
+import org.springblade.core.launch.BladeApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
@@ -11,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CloudShearPlateApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CloudShearPlateApplication.class, args);
+        BladeApplication.run(CommonConstant.APPLICATION_NAME, CloudShearPlateApplication.class, args);
     }
 
 }
