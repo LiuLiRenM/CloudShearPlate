@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liuliren.cloudshearplate.modules.admin.sync.mapper.ShearPlateRecordMapper">
-    <resultMap id="shearPlateRecordResultMap" type="com.liuliren.cloudshearplate.modules.admin.sync.entity.ShearPlateRecord">
+    <resultMap id="shearPlateRecordResultMap"
+               type="com.liuliren.cloudshearplate.modules.admin.sync.entity.ShearPlateRecord">
         <result column="id" property="id"/>
         <result column="user_id" property="userId"/>
         <result column="create_user" property="createUser"/>
@@ -11,4 +12,29 @@
         <result column="status" property="status"/>
         <result column="is_deleted" property="isDeleted"/>
     </resultMap>
+
+    <resultMap id="shearPlateRecordResponseResultMap"
+               type="com.liuliren.cloudshearplate.modules.admin.sync.response.ShearPlateRecordResponse">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <association property="content" columnPrefix="cont_"
+                     resultMap="com.liuliren.cloudshearplate.modules.admin.sync.mapper.ContentMapper.contentMapperResponseResultMap">
+
+        </association>
+    </resultMap>
+    <select id="list"
+            resultMap="shearPlateRecordResponseResultMap">
+        select record.id,
+               record.create_time,
+               record.update_time,
+               cont.id          as cont_id,
+               cont.create_time as cont_create_time,
+               cont.update_time as cont_update_time,
+               cont.content     as cont_content
+        from lyw_shear_plate_record record
+                 left join lyw_content cont on record.content_id = cont.id and cont.is_deleted = 0
+        where record.is_deleted = 0
+          and record.user_id = #{userId}
+    </select>
 </mapper>

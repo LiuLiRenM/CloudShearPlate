@@ -11,4 +11,12 @@
         <result column="status" property="status"/>
         <result column="is_deleted" property="isDeleted"/>
     </resultMap>
+
+    <resultMap id="contentMapperResponseResultMap"
+               type="com.liuliren.cloudshearplate.modules.admin.sync.response.ContentResponse">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="content" property="content"/>
+    </resultMap>
 </mapper>
