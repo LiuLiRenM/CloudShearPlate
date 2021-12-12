@@ -14,7 +14,7 @@
     <name>CloudShearPlate</name>
     <description>CloudShearPlate</description>
     <properties>
-        <blade.tool.version>3.1.0</blade.tool.version>
+        <blade.tool.version>3.2.0</blade.tool.version>
         <java.version>1.8</java.version>
         <spring.boot.version>2.5.6</spring.boot.version>
 
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-            <version>2.5.6</version>
+            <version>2.6.1</version>
         </dependency>
 
         <!-- Blade -->
@@ -87,6 +87,24 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.25</version>
             <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>[0.4, 0.5)</version>
         </dependency>
 
     </dependencies>

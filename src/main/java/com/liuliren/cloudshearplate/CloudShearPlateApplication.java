@@ -14,6 +14,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CloudShearPlateApplication {
 
     public static void main(String[] args) {
+        // 解决 java.awt.HeadlessException
+        System.setProperty("java.awt.headless","false");
         BladeApplication.run(CommonConstant.APPLICATION_NAME, CloudShearPlateApplication.class, args);
     }
 
