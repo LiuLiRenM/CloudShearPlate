@@ -10,4 +10,8 @@ class CloudShearPlateApplicationTests {
     void contextLoads() {
     }
 
+    @Test
+    void Test() {
+        System.out.println("Github Actions 测试");
+    }
 }
